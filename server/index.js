@@ -1,6 +1,8 @@
+require('dotenv').config();
 const { MongoClient } = require("mongodb");
 const express = require("express");
 const app = express();
+const session = require('express-session');
 const cors = require("cors");
 //Cryptography
 const bcrypt = require('bcrypt');
@@ -10,6 +12,17 @@ let db;
 
 app.use(cors());
 app.use(express.json());
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        saveUninitialized: true,
+        resave: false,
+        cookie: {
+            httpOnly: true,
+            maxAge: parseInt(process.env.SESSION_MAX_AGE)
+        }
+    })
+);
 
 //News
 app.get("/getNews", async (req, res) => {
@@ -25,17 +38,17 @@ app.get("/admin", (req, res) => {
 app.post("/register", async (req, res) => {
     const { username } = req.body;
     const { password } = req.body;
-  
+
     // Encrypt the password
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-  
+
     // Add user to database
     const newAdmin = { username, password: hashedPassword, isAdmin: true };
     await db.collection("authors").insertOne(newAdmin);
     res.send("Admin registrado com sucesso");
-  });
+});
 
-async function start () {
+async function start() {
     //Connect and Start
     const client = new MongoClient("mongodb://root:root@localhost:27017/NewsApp?&authSource=admin")
     await client.connect()
