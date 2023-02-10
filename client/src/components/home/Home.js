@@ -7,11 +7,10 @@ function Home() {
   return (
     <div className="bg-gray-100">
       <Header />
-      <News/>
+      <News />
       <Footer />
     </div>
   );
 }
 
 export default Home;
-

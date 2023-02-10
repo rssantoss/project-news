@@ -1,14 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const NewSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
   /*
   category: {
@@ -18,6 +18,6 @@ const NewSchema = new mongoose.Schema({
   */
 });
 
-const New = mongoose.model('New', NewSchema);
+const New = mongoose.model("New", NewSchema);
 
 module.exports = New;
