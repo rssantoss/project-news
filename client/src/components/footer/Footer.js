@@ -10,7 +10,7 @@ function Footer() {
                     <li className="flex items-center justify-center"><button className=" h-10">Youtube</button></li>
                     <li className="flex  items-center justify-center "><button className=" h-10">Twitter</button></li>
                 </ul>
-                <p>Copyright © 2023 Indie Voyager. Todos os direitos reservados.</p>
+                <p>Copyright © 2023 Rafael Silva Santos. Todos os direitos reservados.</p>
             </footer>
         </div>
     );

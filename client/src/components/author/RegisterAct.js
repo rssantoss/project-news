@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function RegisterAdm() {
+function RegisterAct() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -10,9 +10,9 @@ function RegisterAdm() {
 
     try {
       const response = await axios.post('http://localhost:3001/register', { username, password });
-      console.log('Admin registered successfully', response.data);
+      console.log('Autor registrado com sucesso', response.data);
     } catch (error) {
-      console.error('Failed to register admin', error);
+      console.error('Falha ao registrar um autor', error);
     }
   };
 
@@ -25,4 +25,4 @@ function RegisterAdm() {
   );
 }
 
-export default RegisterAdm;
+export default RegisterAct;

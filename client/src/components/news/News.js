@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import NewsList from "./NewsList";
 
-function Card() {    
+function News() {    
     const [allNews, setAllNews] = useState([]);
     
     useEffect(() => {
@@ -24,4 +24,4 @@ function Card() {
     );
 }
 
-export default Card;
+export default News;
