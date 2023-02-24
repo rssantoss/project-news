@@ -5,7 +5,7 @@ import News from "../news/News";
 
 function Home() {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 font-serif">
       <Header />
       <News />
       <Footer />
